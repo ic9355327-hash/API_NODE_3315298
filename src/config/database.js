@@ -1,4 +1,4 @@
-const {sequelize} = require('sequelize');
+const {Sequelize} = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
@@ -11,4 +11,4 @@ const sequelize = new Sequelize(
         dialect: process.env.DB_DIALECT
     }
 );
-module.exports = sequelize;
+module.exports = sequelize; 
