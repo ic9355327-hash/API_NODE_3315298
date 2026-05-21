@@ -1,0 +1,16 @@
+const express = require('express');
+const router = express.Router();
+const usuarioController = require('../controllers/usuario.controller');
+const { validarJWT } = require('../middlewares/auth.middlewares');
+const { esAdminRole } = require('../middlewares/role.middleware');
+const { validarCampos } = require('../middlewares/validate.middleware');
+const { crearUsuarioValidator } = require('../validators/usuario.validator');
+
+router.post('/',[
+    validarJWT,
+    esAdminRole,
+    crearUsuarioValidator,
+    validarCampos],usuarioController.crear);
+
+router.get('/',[validarJWT,esAdminRole],usuarioController.listar);
+module.exports = router; 

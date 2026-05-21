@@ -12,9 +12,13 @@ api-node
 
        |-router **Define las URL de la API**
 
+      |validators **Validar campos**
+      
        |-services **Lógica del negocio**
 
        |-utils **Funciones reutilizables**
+
+       |-seeders **datos pregrabados**
 
        |-app.js **Configuraciones de la aplicación**
        
@@ -35,3 +39,41 @@ api-node
 
      Instalamos otras dependencias en api.node
      npm install dotenv sequelize mysql2 pg pg-hstore
+
+     cambios en el package.json
+
+     ```
+  "main": "src/server.js",
+  "script": {
+  },
+     ```
+     se puede ejecutar con``npm start``
+
+     Modelo (Entidad Usuario)
+     ruta src/models/usuario.model.js
+     Servicio(Lógica de negocios)
+     ruta src/services/usuario.service.js
+     Controlador
+     ruta src/controllers/usuario.controller.js
+     Rutas
+     src/routes/usuario.routes.js
+
+     Dependencias
+     npm install bcryptjs jsonwebtoken cors helmet morgan express-validator express-rate-limit
+
+     dependencias desarrrollo
+     npm install -D nodemon 
+
+      "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+
+  ejecutar con npm run dev
+
+  configuración de seguridad en  .env 
+  JWT_SECRET=mi_clave
+SUPERADMIN_EMAIL=ic9355327@gmail.com
+SUPERADMIN_PASSWORD=Admin123*
+
+modificar usuario.model.js
